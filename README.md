@@ -13,6 +13,10 @@
 | 认证 | 微信 code2session + HMAC 签名 token | 客户 token 无状态（重启不失效）；师傅端密码登录 |
 | 部署 | Docker / docker-compose | 数据卷挂载宿主机，重建容器不丢数据 |
 
+## 图片
+<img width="433" height="459" alt="image" src="https://github.com/user-attachments/assets/a0f3acf0-b469-4bb5-b870-8d427c4b9b69" />
+<img width="455" height="468" alt="image" src="https://github.com/user-attachments/assets/89e07f76-e2db-4d3f-8d02-f7ab2dc6483f" />
+
 ## 架构
 
 ```
