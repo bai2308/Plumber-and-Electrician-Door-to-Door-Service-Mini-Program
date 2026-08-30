@@ -1,0 +1,32 @@
+<view wx:if="{{order}}">
+  <view class="card status-card">
+    <text class="st-{{order.status}} status-text">{{order.status_text}}</text>
+    <view class="status-tip" wx:if="{{order.status === 'pending'}}">等待师傅接单，也可电话催单</view>
+    <view class="status-tip" wx:if="{{order.status === 'confirmed'}}">师傅已接单，将按约定时间上门</view>
+    <view class="status-tip" wx:if="{{order.status === 'repairing'}}">维修进行中</view>
+    <view class="status-tip" wx:if="{{order.status === 'completed'}}">维修已完成，感谢使用</view>
+    <view class="status-tip" wx:if="{{order.status === 'cancelled'}}">订单已取消</view>
+  </view>
+
+  <view class="card">
+    <view class="row"><text class="k">服务项目</text><text>{{order.service_type}}</text></view>
+    <view class="row"><text class="k">下单时间</text><text>{{order.created_at}}</text></view>
+    <view class="row" wx:if="{{order.scheduled_time}}"><text class="k">期望时间</text><text>{{order.scheduled_time}}</text></view>
+    <view class="row"><text class="k">联系人</text><text>{{order.customer_name}}</text></view>
+    <view class="row"><text class="k">电话</text><text>{{order.phone}}</text></view>
+    <view class="row"><text class="k">地址</text><text class="v">{{order.address}}</text></view>
+    <view class="row" wx:if="{{order.description}}"><text class="k">故障描述</text><text class="v">{{order.description}}</text></view>
+    <view class="row" wx:if="{{order.price}}"><text class="k">费用</text><text class="price">¥{{order.price}}</text></view>
+    <view class="row" wx:if="{{order.note}}"><text class="k">师傅备注</text><text class="v">{{order.note}}</text></view>
+  </view>
+
+  <view class="card" wx:if="{{photoUrls.length}}">
+    <view class="photo-title">现场照片</view>
+    <view class="photos">
+      <image wx:for="{{photoUrls}}" wx:key="*this" src="{{item}}" mode="aspectFill"
+             class="photo" bindtap="preview" data-url="{{item}}" />
+    </view>
+  </view>
+
+  <button class="btn-ghost call-btn" bindtap="callMaster">电话联系师傅</button>
+</view>

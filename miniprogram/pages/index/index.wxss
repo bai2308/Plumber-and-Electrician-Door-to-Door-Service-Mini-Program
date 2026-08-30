@@ -1,0 +1,56 @@
+.hero {
+  background: linear-gradient(135deg, #1677ff, #4096ff);
+  color: #fff;
+  padding: 70rpx 40rpx 60rpx;
+}
+
+.hero-title {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.hero-sub {
+  font-size: 26rpx;
+  opacity: 0.9;
+  margin: 16rpx 0 40rpx;
+}
+
+.hero-btn {
+  width: 320rpx;
+  background: #fff;
+  color: #1677ff;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 12rpx;
+}
+
+.grid-item {
+  width: calc(33.33% - 24rpx);
+  margin: 12rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx 12rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.grid-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.grid-price {
+  font-size: 22rpx;
+  color: #fa8c16;
+  margin-top: 8rpx;
+}
+
+.link-master {
+  text-align: center;
+  color: #bbb;
+  font-size: 24rpx;
+  padding: 40rpx 0 60rpx;
+}

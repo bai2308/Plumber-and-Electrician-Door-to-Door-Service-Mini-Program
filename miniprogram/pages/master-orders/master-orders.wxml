@@ -1,0 +1,43 @@
+<view class="topbar">
+  <view class="tabs">
+    <view class="tab {{active === item.key ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="key"
+          bindtap="switchTab" data-key="{{item.key}}">{{item.text}}</view>
+  </view>
+  <view class="top-actions">
+    <text class="link" bindtap="goCustomers">客户</text>
+    <text class="link" bindtap="goStats">统计</text>
+    <text class="link" bindtap="logout">退出</text>
+  </view>
+</view>
+
+<view class="card m-order" wx:for="{{orders}}" wx:key="id">
+  <view class="o-top">
+    <text class="o-type">#{{item.id}} {{item.service_type}}</text>
+    <text class="o-status st-{{item.status}}">{{item.status_text}}</text>
+  </view>
+  <view class="o-info">{{item.customer_name}}　{{item.phone}}</view>
+  <view class="o-info">{{item.address}}</view>
+  <view class="o-info" wx:if="{{item.scheduled_time}}">期望时间：{{item.scheduled_time}}</view>
+  <view class="o-info" wx:if="{{item.description}}">描述：{{item.description}}</view>
+  <view class="o-info" wx:if="{{item.photos.length}}">照片 {{item.photos.length}} 张（详见订单详情页）</view>
+  <view class="o-info" wx:if="{{item.price}}">收费：¥{{item.price}}</view>
+  <view class="o-info time">{{item.created_at}}</view>
+
+  <view class="o-actions">
+    <button class="btn-ghost mini" size="mini" bindtap="callCustomer" data-phone="{{item.phone}}">电话</button>
+    <block wx:if="{{item.status === 'pending'}}">
+      <button class="btn-primary mini" size="mini" bindtap="act" data-id="{{item.id}}" data-action="confirm">接单</button>
+      <button class="btn-ghost mini danger" size="mini" bindtap="act" data-id="{{item.id}}" data-action="cancel">取消</button>
+    </block>
+    <block wx:if="{{item.status === 'confirmed'}}">
+      <button class="btn-primary mini" size="mini" bindtap="act" data-id="{{item.id}}" data-action="repairing">开始维修</button>
+      <button class="btn-ghost mini danger" size="mini" bindtap="act" data-id="{{item.id}}" data-action="cancel">取消</button>
+    </block>
+    <block wx:if="{{item.status === 'repairing'}}">
+      <button class="btn-primary mini" size="mini" bindtap="act" data-id="{{item.id}}" data-action="complete">完成并收费</button>
+    </block>
+    <button class="btn-ghost mini danger" size="mini" bindtap="delOrder" data-id="{{item.id}}">删除</button>
+  </view>
+</view>
+
+<view class="empty" wx:if="{{!orders.length}}">暂无订单</view>

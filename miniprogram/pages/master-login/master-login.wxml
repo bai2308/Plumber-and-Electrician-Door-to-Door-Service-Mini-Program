@@ -1,0 +1,8 @@
+<view class="wrap">
+  <view class="title">师傅登录</view>
+  <view class="sub">仅限本人使用</view>
+  <view class="card">
+    <input class="pwd" password placeholder="请输入登录密码" value="{{password}}" bindinput="bindInput" />
+    <button class="btn-primary login-btn" bindtap="login" loading="{{loading}}">登录</button>
+  </view>
+</view>

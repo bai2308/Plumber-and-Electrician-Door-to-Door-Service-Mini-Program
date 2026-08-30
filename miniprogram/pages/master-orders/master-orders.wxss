@@ -1,0 +1,69 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 16rpx 20rpx;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tabs {
+  display: flex;
+  flex: 1;
+}
+
+.tab {
+  padding: 8rpx 22rpx;
+  font-size: 26rpx;
+  color: #666;
+  border-radius: 28rpx;
+  margin-right: 8rpx;
+}
+
+.tab.active {
+  background: #1677ff;
+  color: #fff;
+}
+
+.top-actions { display: flex; }
+
+.link {
+  color: #1677ff;
+  font-size: 26rpx;
+  padding: 8rpx 16rpx;
+}
+
+.m-order { padding: 28rpx; }
+
+.o-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.o-type { font-size: 30rpx; font-weight: 600; }
+
+.o-status { font-size: 26rpx; font-weight: 600; }
+
+.o-info {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 6rpx;
+}
+
+.o-info.time { color: #bbb; }
+
+.o-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.mini { margin-left: 12rpx; }
+
+.mini.danger {
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}

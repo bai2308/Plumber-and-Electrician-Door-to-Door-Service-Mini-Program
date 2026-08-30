@@ -1,0 +1,50 @@
+/* 全局样式 */
+page {
+  background: #f5f6f8;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+}
+
+.btn-primary {
+  background: #1677ff;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+}
+
+.btn-primary::after { border: none; }
+
+.btn-ghost {
+  background: #fff;
+  color: #1677ff;
+  border: 1rpx solid #1677ff;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+}
+
+/* 订单状态颜色 */
+.st-pending { color: #fa8c16; }
+.st-confirmed { color: #1677ff; }
+.st-repairing { color: #722ed1; }
+.st-completed { color: #52c41a; }
+.st-cancelled { color: #999; }
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin: 20rpx 24rpx;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 100rpx 0;
+  font-size: 26rpx;
+}

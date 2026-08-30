@@ -1,0 +1,111 @@
+.topbar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  background: #f5f6f8;
+  border-radius: 36rpx;
+  padding: 14rpx 24rpx;
+  font-size: 28rpx;
+}
+
+.search-btn { margin-left: 16rpx; }
+
+.c-card { padding: 28rpx; }
+
+.c-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+
+.c-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.c-tag {
+  font-size: 22rpx;
+  color: #07c160;
+  background: rgba(7, 193, 96, 0.1);
+  border-radius: 8rpx;
+  padding: 2rpx 12rpx;
+  margin-left: 12rpx;
+  font-weight: normal;
+}
+
+.c-phone {
+  font-size: 28rpx;
+  color: #1677ff;
+  font-weight: 600;
+}
+
+.c-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.c-stat {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.c-stat.c-money {
+  color: #fa8c16;
+  font-weight: 600;
+}
+
+.c-addr {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.c-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.toggle-link {
+  font-size: 26rpx;
+}
+
+.c-orders {
+  margin-top: 16rpx;
+  border-top: 1rpx dashed #eee;
+  padding-top: 12rpx;
+}
+
+.c-order {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  color: #555;
+}
+
+.co-main { flex: 1; font-weight: 500; color: #333; }
+
+.co-status { font-size: 22rpx; font-weight: 600; }
+
+.co-time { color: #bbb; }
+
+.co-price { color: #fa8c16; font-weight: 600; }
+
+.c-empty {
+  font-size: 24rpx;
+  color: #bbb;
+  text-align: center;
+  padding: 10rpx 0;
+}

@@ -1,0 +1,10 @@
+<view class="card service-item" wx:for="{{services}}" wx:key="id"
+      bindtap="goOrder" data-name="{{item.name}}">
+  <view class="s-top">
+    <view class="s-name">{{item.name}}</view>
+    <view class="s-price">¥{{item.price}}<text class="s-unit">/{{item.unit}}起</text></view>
+  </view>
+  <view class="s-desc">{{item.description}}</view>
+</view>
+<view class="empty" wx:if="{{!services.length}}">加载中...</view>
+<view class="tip">价格为参考价，实际费用以师傅上门检查后报价为准</view>

@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/services/services",
+    "pages/order-list/order-list",
+    "pages/order-create/order-create",
+    "pages/order-detail/order-detail",
+    "pages/login/login",
+    "pages/master-login/master-login",
+    "pages/master-orders/master-orders",
+    "pages/master-customers/master-customers",
+    "pages/stats/stats"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1677ff",
+    "navigationBarTitleText": "水电维修上门服务",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f6f8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1677ff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/services/services", "text": "服务价格" },
+      { "pagePath": "pages/order-list/order-list", "text": "我的订单" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

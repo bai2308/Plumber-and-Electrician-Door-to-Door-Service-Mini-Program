@@ -1,0 +1,44 @@
+<view class="topbar">
+  <input class="search-input" placeholder="搜索姓名 / 手机号" value="{{q}}"
+         bindinput="bindInput" confirm-type="search" bindconfirm="fetch" />
+  <button class="btn-primary search-btn" size="mini" bindtap="fetch">搜索</button>
+</view>
+
+<view class="card c-card" wx:for="{{customers}}" wx:key="phone">
+  <view class="c-top">
+    <view class="c-name">
+      {{item.name || '未留姓名'}}
+      <text class="c-tag" wx:if="{{item.nickname}}">微信：{{item.nickname}}</text>
+    </view>
+    <text class="c-phone">{{item.phone}}</text>
+  </view>
+
+  <view class="c-stats">
+    <text class="c-stat">订单 {{item.total}} 单</text>
+    <text class="c-stat">完成 {{item.completed}} 单</text>
+    <text class="c-stat c-money">累计 ¥{{item.spent}}</text>
+    <text class="c-stat">最近：{{item.last_at}}</text>
+  </view>
+
+  <view class="c-addr" wx:if="{{item.address}}">常用地址：{{item.address}}</view>
+
+  <view class="c-actions">
+    <button class="btn-ghost mini" size="mini" bindtap="call" data-phone="{{item.phone}}">📞 电话</button>
+    <text class="link toggle-link" bindtap="toggle" data-index="{{index}}">
+      {{expanded === index ? '收起订单 ▲' : '历史订单 ▼'}}
+    </text>
+  </view>
+
+  <view class="c-orders" wx:if="{{expanded === index}}">
+    <view class="c-order" wx:for="{{item.orders}}" wx:for-item="ord" wx:key="id">
+      <text class="co-main">#{{ord.id}} {{ord.service_type}}</text>
+      <text class="co-status st-{{ord.status}}">{{ord.status_text}}</text>
+      <text class="co-time">{{ord.created_at}}</text>
+      <text class="co-price" wx:if="{{ord.price}}">¥{{ord.price}}</text>
+    </view>
+    <view class="c-empty" wx:if="{{item.orders && !item.orders.length}}">该客户暂无订单</view>
+    <view class="c-empty" wx:if="{{!item.orders}}">加载中...</view>
+  </view>
+</view>
+
+<view class="empty" wx:if="{{!customers.length && !loading}}">暂无客户数据</view>

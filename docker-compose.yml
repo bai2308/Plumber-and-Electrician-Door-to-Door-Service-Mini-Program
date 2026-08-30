@@ -1,0 +1,14 @@
+services:
+  repair-api:
+    build: .
+    container_name: repair-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MASTER_PASSWORD=123456   # 部署后务必改成自己的密码
+      - WX_APPID=                # 微信小程序 AppID（正式登录需要，留空为开发模式）
+      - WX_SECRET=               # 微信小程序 AppSecret
+      - AUTH_SECRET=change-me-to-a-random-string   # 客户登录token签名密钥
+    volumes:
+      - ./data:/app/data         # 数据库 + 上传照片持久化
+    restart: unless-stopped

@@ -1,0 +1,26 @@
+.service-item { padding: 28rpx; }
+
+.s-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.s-name { font-size: 32rpx; font-weight: 600; }
+
+.s-price { color: #fa8c16; font-size: 34rpx; font-weight: 700; }
+
+.s-unit { font-size: 22rpx; color: #999; font-weight: 400; }
+
+.s-desc {
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.tip {
+  color: #bbb;
+  font-size: 22rpx;
+  text-align: center;
+  padding: 20rpx 0 60rpx;
+}

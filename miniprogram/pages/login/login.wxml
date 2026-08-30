@@ -1,0 +1,46 @@
+<view class="wrap">
+  <view class="logo">🔧</view>
+  <view class="title">水电维修上门服务</view>
+
+  <!-- 第一步：微信授权登录 -->
+  <block wx:if="{{step === 'login'}}">
+    <view class="desc">登录后即可在线下单、查看维修进度</view>
+    <view class="tips">需授权微信账号信息，并验证手机号</view>
+    <button class="btn-wx" bindtap="wxLogin" loading="{{logining}}">
+      微信一键登录
+    </button>
+  </block>
+
+  <!-- 第二步：绑定手机号 -->
+  <block wx:if="{{step === 'bind'}}">
+    <view class="card form">
+      <view class="form-title">绑定联系信息</view>
+      <view class="tips center">微信授权成功，请完善联系方式</view>
+      <input class="input" placeholder="您的称呼（如：张先生）"
+             value="{{name}}" bindinput="bindInput" data-key="name" />
+      <input class="input" type="number" maxlength="11"
+             placeholder="手机号（师傅联系您用）"
+             value="{{phone}}" bindinput="bindInput" data-key="phone" />
+      <button class="btn-primary submit" bindtap="bindPhone" loading="{{binding}}">
+        绑定并完成登录
+      </button>
+      <view class="tips center">手机号仅用于维修联系，不会泄露给第三方</view>
+    </view>
+  </block>
+
+  <!-- 已登录 -->
+  <block wx:if="{{step === 'done'}}">
+    <view class="card form">
+      <view class="u-row">
+        <text class="u-label">称呼</text>
+        <text>{{user.name || '未填写'}}</text>
+      </view>
+      <view class="u-row">
+        <text class="u-label">手机号</text>
+        <text>{{user.phone || '未绑定'}}</text>
+      </view>
+      <button class="btn-primary submit" bindtap="goOrders">查看我的订单</button>
+      <button class="btn-ghost" bindtap="logout">退出登录</button>
+    </view>
+  </block>
+</view>

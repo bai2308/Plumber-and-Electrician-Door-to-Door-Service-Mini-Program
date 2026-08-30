@@ -1,0 +1,47 @@
+<view class="card">
+  <view class="form-item">
+    <text class="label">姓名</text>
+    <input placeholder="您的称呼" value="{{form.customer_name}}" data-key="customer_name" bindinput="bindInput" />
+  </view>
+  <view class="form-item">
+    <text class="label">手机号</text>
+    <input type="number" maxlength="11" placeholder="师傅会电话联系您" value="{{form.phone}}" data-key="phone" bindinput="bindInput" />
+  </view>
+  <view class="form-item">
+    <text class="label">上门地址</text>
+    <input placeholder="小区/楼栋/门牌号" value="{{form.address}}" data-key="address" bindinput="bindInput" />
+  </view>
+  <view class="form-item">
+    <text class="label">服务项目</text>
+    <picker range="{{services}}" range-key="name" value="{{serviceIndex}}" bindchange="bindService">
+      <view class="picker {{serviceIndex >= 0 ? '' : 'placeholder'}}">
+        {{serviceIndex >= 0 ? services[serviceIndex].name : '请选择服务项目'}}
+      </view>
+    </picker>
+  </view>
+  <view class="form-item">
+    <text class="label">期望时间</text>
+    <picker mode="date" start="{{today}}" bindchange="bindTime">
+      <view class="picker {{form.scheduled_time ? '' : 'placeholder'}}">
+        {{form.scheduled_time || '选填，日期'}}
+      </view>
+    </picker>
+  </view>
+  <view class="form-item column">
+    <text class="label">故障描述</text>
+    <textarea class="textarea" placeholder="简单描述问题，如：厨房水管漏水" maxlength="200"
+              value="{{form.description}}" data-key="description" bindinput="bindInput" />
+  </view>
+  <view class="form-item column">
+    <text class="label">现场照片（最多3张）</text>
+    <view class="photos">
+      <view class="photo-box" wx:for="{{localPhotos}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" class="photo" />
+        <view class="photo-del" catchtap="removePhoto" data-index="{{index}}">×</view>
+      </view>
+      <view class="photo-add" bindtap="choosePhoto" wx:if="{{localPhotos.length < 3}}">＋</view>
+    </view>
+  </view>
+</view>
+
+<button class="btn-primary submit-btn" bindtap="submit" loading="{{submitting}}">提交订单</button>

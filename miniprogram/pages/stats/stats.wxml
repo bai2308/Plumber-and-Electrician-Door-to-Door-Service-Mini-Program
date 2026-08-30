@@ -1,0 +1,38 @@
+<view class="card month-bar">
+  <picker range="{{months}}" value="{{0}}" bindchange="bindMonth">
+    <view class="month-pick">{{month}} ▾</view>
+  </picker>
+</view>
+
+<view wx:if="{{stats}}">
+  <view class="stat-cards">
+    <view class="stat-box">
+      <view class="stat-num">{{stats.completed_count}}</view>
+      <view class="stat-label">完成订单</view>
+    </view>
+    <view class="stat-box income">
+      <view class="stat-num">¥{{stats.total_income}}</view>
+      <view class="stat-label">当月收入</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">订单分布</view>
+    <view class="dist-row" wx:for="{{stats.status_count}}" wx:key="index">
+      <text class="dist-k">{{item.key}}</text>
+      <text class="dist-v">{{item.value}} 单</text>
+    </view>
+  </view>
+
+  <view class="section-title">已完成订单收入</view>
+  <view class="card trend-item" wx:for="{{incomeTrend}}" wx:key="id">
+    <view class="t-top">
+      <text>#{{item.id}} {{item.type}}</text>
+      <text class="t-price">¥{{item.price}}</text>
+    </view>
+    <view class="t-bar-bg">
+      <view class="t-bar" style="width: {{item.pct}}%"></view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{!incomeTrend.length}}">当月暂无已完成订单</view>
+</view>

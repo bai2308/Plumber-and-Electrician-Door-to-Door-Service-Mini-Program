@@ -1,0 +1,22 @@
+<block wx:if="{{logged}}">
+  <view class="card order-card" wx:for="{{orders}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+    <view class="o-top">
+      <text class="o-type">{{item.service_type}}</text>
+      <text class="o-status st-{{item.status}}">{{item.status_text}}</text>
+    </view>
+    <view class="o-info">下单时间：{{item.created_at}}</view>
+    <view class="o-info" wx:if="{{item.scheduled_time}}">期望时间：{{item.scheduled_time}}</view>
+    <view class="o-info" wx:if="{{item.price}}">费用：¥{{item.price}}</view>
+  </view>
+
+  <view class="empty" wx:if="{{loaded && !orders.length}}">暂无订单，快去下单吧</view>
+
+  <button class="btn-ghost new-order-btn" bindtap="goCreate">新建维修订单</button>
+</block>
+
+<view class="card login-tip" wx:else>
+  <view class="tip-emoji">👤</view>
+  <view class="tip-title">登录后查看您的订单</view>
+  <view class="tip-desc">使用微信授权登录并绑定手机号，即可在线下单并实时查看维修进度</view>
+  <button class="btn-primary" bindtap="goLogin">微信登录</button>
+</view>

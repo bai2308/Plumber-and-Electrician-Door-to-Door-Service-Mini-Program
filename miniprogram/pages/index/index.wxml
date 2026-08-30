@@ -1,0 +1,17 @@
+<view class="hero">
+  <view class="hero-title">水电维修 快速上门</view>
+  <view class="hero-sub">水管 / 电路 / 灯具 / 洁具 / 疏通，一个电话随叫随到</view>
+  <button class="btn-primary hero-btn" bindtap="goOrder">立即下单</button>
+</view>
+
+<view class="section-title">服务项目</view>
+<view class="grid">
+  <view class="grid-item" wx:for="{{services}}" wx:key="id"
+        bindtap="goOrder" data-name="{{item.name}}">
+    <view class="grid-name">{{item.name}}</view>
+    <view class="grid-price">¥{{item.price}}/{{item.unit}}起</view>
+  </view>
+</view>
+<view class="empty" wx:if="{{!services.length}}">加载中...</view>
+
+<view class="link-master" bindtap="goMaster">师傅入口</view>
